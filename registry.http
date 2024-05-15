@@ -1,0 +1,33 @@
+### 获取所有服务实例
+GET http://localhost:8484/findAll?service=io.github.guokaide.kairpc.UserService
+
+### 注册一个实例
+POST http://localhost:8484/register?service=io.github.guokaide.kairpc.UserService
+Content-Type: application/json
+
+{
+  "schema": "http",
+  "host": "localhost",
+  "port": 8081,
+  "context": "kairpc",
+  "status": false,
+  "params": {
+    "tag": "green"
+  }
+}
+
+### 取消注册一个实例
+POST http://localhost:8484/unregister?service=io.github.guokaide.kairpc.UserService
+Content-Type: application/json
+
+{
+  "schema": "http",
+  "host": "localhost",
+  "port": 8080,
+  "context": "kairpc",
+  "status": false,
+  "params": {
+    "tag": "green"
+  }
+}
+
