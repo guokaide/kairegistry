@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class RegistryController {
@@ -30,5 +31,20 @@ public class RegistryController {
     @RequestMapping("/findAll")
     public List<InstanceMeta> getAllInstances(@RequestParam String service) {
         return registryService.getAllInstances(service);
+    }
+
+    @RequestMapping("/renew")
+    public long renew(@RequestParam String service, @RequestBody InstanceMeta instance) {
+        return registryService.renew(instance, service);
+    }
+
+    @RequestMapping("/version")
+    public Long version(@RequestParam String service) {
+        return registryService.version(service);
+    }
+
+    @RequestMapping("/versions")
+    public Map<String, Long> versions(@RequestParam String services) {
+        return registryService.versions(services.split(","));
     }
 }

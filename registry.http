@@ -31,3 +31,24 @@ Content-Type: application/json
   }
 }
 
+### 续约一个实例
+POST http://localhost:8484/renew?service=io.github.guokaide.kairpc.UserService
+Content-Type: application/json
+
+{
+  "schema": "http",
+  "host": "localhost",
+  "port": 8081,
+  "context": "kairpc",
+  "status": false,
+  "params": {
+    "tag": "green"
+  }
+}
+
+### 获取服务版本
+POST http://localhost:8484/version?service=io.github.guokaide.kairpc.UserService
+
+### 获取多个服务版本
+POST http://localhost:8484/versions?services=io.github.guokaide.kairpc.UserService,io.github.guokaide.kairpc.OrderService
+
